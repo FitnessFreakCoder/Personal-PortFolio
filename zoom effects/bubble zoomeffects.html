@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Bubble zoom effects</title>
+
+    <style>
+
+        body{
+            background-color: rgb(195, 190, 190);
+        }
+
+        .rowparent{
+            margin-top: 100px;
+            margin-left: 200px;
+            --avatar-count: 10;
+            --avatar-size: 100px;
+            display: grid;
+            --column-size: calc(var(--avatar-size) / 2);
+            grid-template-columns: repeat(var(--avatar-count), var(--column-size));
+            transition: grid-template-columns 0.5s;
+            transition-delay: 0.5s;
+            max-width: 10vw;
+            padding-block: 2rem;
+            
+        }
+
+        .rowparent:hover,.rowparent:focus-within{
+            --column-size: calc(var(--avatar-size) * 1.5);
+            transition-delay: 0ms;
+        }
+       
+        .row{
+            width: var(--avatar-size);
+            border-radius: 50%;
+            border: 2px solid white;
+            aspect-ratio: 1;
+            object-fit: cover;
+            transition: scale 0.5s;
+        }
+         
+        .row:hover,.row:focus{
+            scale: 2;
+            z-index: 2;
+
+        }
+        
+        @supports selector(:has(+ *)){
+
+            .row:hover + .row,
+        .row:has(+ .row:hover)
+         {
+            scale: 1.2;
+            
+        }
+
+        }
+        
+
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <div>
+        Our team
+    </div>
+    <div class="rowparent">
+        
+            <img  class="row" src="/oniline image/pexels-andrea-piacquadio-712513.jpg">
+            <img  class="row" src="/oniline image/pexels-andrea-piacquadio-733872.jpg">
+            <img  class="row" src="/oniline image/pexels-andrea-piacquadio-774909.jpg">
+        
+
+        
+            <img  class="row" src="/oniline image/pexels-chloe-1043474.jpg">
+            <img  class="row" src="/oniline image/pexels-christina-morillo-1181686.jpg">
+            <img  class="row" src="/oniline image/pexels-daniel-xavier-1212984.jpg">
+        
+        
+            <img  class="row" src="/oniline image/pexels-daniel-xavier-1239291.jpg">
+            <img class="row"  src="/oniline image/pexels-hannah-nelson-1065084.jpg">
+            <img  class="row" src="/oniline image/pexels-moose-photos-1587009.jpg">
+            <img  class="row" src="/oniline image/pexels-stefan-stefancik-91224.jpg">
+
+
+        
+    </div>
+
+
+</body>
+
+</html>
